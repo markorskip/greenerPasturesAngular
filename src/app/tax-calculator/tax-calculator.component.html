@@ -1,0 +1,32 @@
+<p><i>Tax Component</i></p>
+
+<form (ngSubmit)="onSubmit(compForm.value)" [formGroup]="compForm">
+  <label for="state">State Code</label>
+  <select id="state" name="state" formControlName="state">
+    <option value="KY">KY</option>
+    <option value="NM">NM</option>
+    <option value="FL">FL</option>
+    <option value="VA">VA</option>
+  </select>
+  <br/><br/>
+
+  <input type="radio" name="filing_status" id="single" formControlName="filing_status" value="single">
+  <label for="single">Single</label>
+  <input type="radio" name="filing_status" id="married" formControlName="filing_status" value="married">
+  <label for="married">Married</label>
+  <input type="radio" name="filing_status" id="head_of_household" formControlName="filing_status" value="head_of_household">
+  <label for="head_of_household">Head Of Household</label>
+
+  <br/><br/>
+  <label for="salary">Salary</label>
+  <input type="text" id="salary" formControlName="salary"><br/>
+  <button class="button" type="submit">Calculate Tax</button>
+</form>
+
+<div *ngIf="loading">loading...</div>
+<pre>{{ taxData | json}}</pre>
+<div>
+  Summary:<br/>
+
+
+</div>
